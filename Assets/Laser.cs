@@ -57,7 +57,7 @@ public class Laser : MonoBehaviour
                 {
                     mirrorsHit++;
                     Vector2 inDirection = Vector2.Reflect(ray.direction, hit.normal);
-                    ray = new Ray2D(Vector3.Lerp(ray.origin, hit.point, .99999f), inDirection);
+                    ray = new Ray2D(hit.point, inDirection);
                     lineRenderer.SetPosition(i + 1, hit.point);
                 }
             }
@@ -75,7 +75,7 @@ public class Laser : MonoBehaviour
                 {
                     mirrorsHit++;
                     Vector3 inDirection = Vector3.Reflect(ray.direction, hit.normal);
-                    ray = new Ray2D(Vector3.Lerp(ray.origin, hit.point, .99999f), inDirection);
+                    ray = new Ray2D(hit.point, inDirection);
                     lineRenderer.positionCount = ++reflectPoints;
                     lineRenderer.SetPosition(i + 1, hit.point);
                 }
