@@ -648,7 +648,7 @@ PlayerSettings:
   cloudServicesEnabled:
     UNet: 1
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: d40d87fa-8b42-4b34-8532-6f710cab02e0
   projectName: Laser Game
   organizationId: nicholas-1734588
