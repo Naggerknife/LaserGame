@@ -2,6 +2,7 @@
 
 public class Laser2 : MonoBehaviour 
 {
+    public LineRenderer Line;
     public LayerMask layers;
     public RaycastHit2D PublicHit;
 
@@ -19,10 +20,13 @@ public class Laser2 : MonoBehaviour
         for (int i = 0; i <= _numOfReflections; i++)
         {
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, layers);
-            PublicHit = hit;
-            Vector3 inDirection = Vector3.Reflect(ray.direction, hit.normal);
-            Debug.DrawLine(ray.origin, hit.point);
-            ray = new Ray(hit.point, inDirection);
+            if(hit.collider != null)
+            {
+                PublicHit = hit;
+                Vector3 inDirection = Vector3.Reflect(ray.direction, hit.normal);
+                Debug.DrawLine(ray.origin, hit.point);
+                ray = new Ray(hit.point, inDirection);
+            }
         }
 	}
 }
