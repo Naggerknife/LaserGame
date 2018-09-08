@@ -16,7 +16,7 @@ public class Laser2 : MonoBehaviour
 
 	private void ShootLaser()
 	{
-        Ray ray = new Ray(transform.position, transform.up);
+        Ray2D ray = new Ray2D(transform.position, transform.up);
         for (int i = 0; i <= _numOfReflections; i++)
         {
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, layers);
@@ -25,7 +25,7 @@ public class Laser2 : MonoBehaviour
                 PublicHit = hit;
                 Vector3 inDirection = Vector3.Reflect(ray.direction, hit.normal);
                 Debug.DrawLine(ray.origin, hit.point);
-                ray = new Ray(hit.point, inDirection);
+                ray = new Ray2D(hit.point, inDirection);
             }
         }
 	}
